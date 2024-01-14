@@ -81,9 +81,10 @@ router.post("/login", validInfo, async (req, res) => {
     res.status(500).send("server error");
   }
 });
-router.get("/is-verify", authorization, async (req, res) => {
+router.post("/is-verify", authorization, async (req, res) => {
   try {
     res.json(true);
+    // console.log("verified");
   } catch (error) {
     console.error(error.message);
     return res.status(500).json("server error");

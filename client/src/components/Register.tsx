@@ -4,8 +4,8 @@ import { toast } from "react-toastify";
 interface RegisterProps {
   setAuth: (value: boolean) => void;
 }
-// const Register: React.FC<RegisterProps> = ({ setAuth }) => {
-const Register = () => {
+const Register: React.FC<RegisterProps> = ({ setAuth }) => {
+  // const Register = () => {
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -30,10 +30,10 @@ const Register = () => {
       //   toast(parseRes.token);
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
-        // setAuth(true);
+        setAuth(true);
         toast.success("Registered Successfully");
       } else {
-        // setAuth(false);
+        setAuth(false);
         toast.error(parseRes);
       }
     } catch (error) {
@@ -76,6 +76,10 @@ const Register = () => {
           Submit
         </button>
       </form>
+      <div className="mt-12">Already have account?</div>
+      <a href="/login">
+        <button>Login</button>
+      </a>
     </div>
   );
 };
